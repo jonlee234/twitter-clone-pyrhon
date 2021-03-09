@@ -6,6 +6,9 @@ from tweet.models import Tweet
 
 
 class TwitterUser(AbstractUser):
+    dependencies = models.ManyToManyField("self", symmetrical=False)
     tweets = models.ManyToManyField(Tweet, blank=True)
     followers = models.ManyToManyField(
-        settings.AUTH_USER_MODEL, blank=True)
+        settings.AUTH_USER_MODEL, blank=True, related_name="followers_list")
+    following = models.ManyToManyField(
+        'self', related_name='following', blank=True)

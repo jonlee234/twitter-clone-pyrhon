@@ -1,0 +1,15 @@
+<h1>{{user.username}}</h1>
+
+<section><p>{{user.username}} has tweeted {{count}} times</p></section>
+
+<section>
+  <p>Tweets</p>
+  <ul>
+    {%for item in tweets%}
+    <li>
+      {{item.tweet}}
+      <p>{{item.post_date}}</p>
+    </li>
+  </ul>
+  {%endfor%}
+</section>

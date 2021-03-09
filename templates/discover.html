@@ -1,0 +1,12 @@
+<h1>Discover Tweets</h1>
+
+<ul>
+  {%for item in tweets%}
+
+  <li>
+    <h3>{{item.tweet}}</h3>
+    <p>posted by <a href="/users/{{item.author.id}}">{{item.author}}</a></p>
+    <p>{{item.post_date}}</p>
+  </li>
+  {%endfor%}
+</ul>

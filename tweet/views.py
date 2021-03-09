@@ -1,9 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from tweet.forms import TweetForm
 from tweet.models import Tweet
 from django.contrib.auth import get_user_model
 
-Myuser = get_user_model()
+MyUser = get_user_model()
 # Create your views here.
 
 
@@ -21,3 +21,8 @@ def post_tweet(request):
     form = TweetForm
     context.update({'form': form})
     return render(request, "generic_form.html", {'form': form})
+
+
+def discover_view(request):
+    tweets = Tweet.objects.all()
+    return render(request, 'discover.html', {"tweets": tweets})

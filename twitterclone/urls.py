@@ -16,15 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from authentication import views
-from tweet.views import post_tweet
+from tweet.views import post_tweet, discover_view
 from authentication.views import signup_view, login_view, logout_view
+from twitteruser.views import user_page
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", views.index, name='homepage'),
+    path("", views.index, name='home'),
     path('tweets/add', post_tweet, name='post_tweet'),
     path('signup/', signup_view, name='signup'),
     path('login/', login_view, name='login'),
-    path('logout/', logout_view, name='logout')
+    path('logout/', logout_view, name='logout'),
+    path('discover/', discover_view, name='discover'),
+    path('users/<int:user_id>/', user_page, name="user_detail")
 
 ]
