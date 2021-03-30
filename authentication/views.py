@@ -10,8 +10,9 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def index(request):
-    pass
-    return render(request, 'index.html')
+    tweets = Tweet.objects.all().order_by('-post_date')
+    context = {"tweets": tweets}
+    return render(request, 'index.html', context)
 
 
 def login_view(request):

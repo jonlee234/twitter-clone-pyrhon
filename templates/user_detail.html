@@ -1,6 +1,15 @@
-<h1>{{user.username}}</h1>
+<h1>{{u.username}}</h1>
 
-<section><p>{{user.username}} has tweeted {{count}} times</p></section>
+{% if user.is_authenticated %}
+
+<a href="/follow/{{u.id}}">Follow this User</a>
+<a href="/unfollow/{{u.id}}">Stop following this User</a>
+
+{% endif %}
+
+<section>User is following {{u.following.count}} people</section>
+
+<section><p>{{u.username}} has tweeted {{count}} times</p></section>
 
 <section>
   <p>Tweets</p>

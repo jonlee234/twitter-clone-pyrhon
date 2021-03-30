@@ -1,1 +1,19 @@
 This is My Home Page
+
+<a href="/notifications/">notifications</a>
+
+<a href="/logout/">logout</a>
+
+<a href="/tweets/add/">Tweet</a>
+
+<a href="/users/{{user.id}}/">View Profile</a>
+
+<ul>
+  {%for item in tweets%}
+  <li>
+    <h3><a href="/tweets/{{item.id}}/">{{item.tweet}}</a></h3>
+    <p>posted by <a href="/users/{{item.author.id}}">{{item.author}}</a></p>
+    <p>{{item.post_date}}</p>
+  </li>
+  {%endfor%}
+</ul>
